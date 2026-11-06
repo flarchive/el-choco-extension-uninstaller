@@ -1,0 +1,47 @@
+{
+  "name": "el-choco/extension-uninstaller",
+  "description": "Review extension removals, preserve data or run Flarum purge with a database backup.",
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.4",
+    "flarum/core": "^1.8 || ^2.0",
+    "symfony/process": "^5.4 || ^6.0 || ^7.0 || ^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ElChoco\\ExtensionUninstaller\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Extension Uninstaller",
+      "icon": {
+        "name": "fas fa-box-open",
+        "backgroundColor": "#173c3b",
+        "color": "#9ae8c2"
+      }
+    }
+  },
+  "authors": [
+    {
+      "name": "el-choco"
+    }
+  ],
+  "keywords": [
+    "flarum",
+    "extension",
+    "uninstall",
+    "maintenance"
+  ],
+  "archive": {
+    "exclude": [
+      "/node_modules",
+      "/js/node_modules",
+      "/tests",
+      "/.git",
+      "/*.zip",
+      "/dist"
+    ]
+  }
+}
