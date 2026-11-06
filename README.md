@@ -2,13 +2,13 @@
 
 > **Read-only archive of released versions of el-choco/extension-uninstaller.** Not for installation: use [Packagist](https://packagist.org/packages/el-choco/extension-uninstaller) or the [upstream repository](https://github.com/el-choco/extension-uninstaller).
 
-**0** versions archived · Latest: [`v0.1.0-rc.1`](https://github.com/flarchive/el-choco-extension-uninstaller/tree/archive/v0.1.0-rc.1) · License: `MIT` · Flarum: `^1.8 || ^2.0`
+**1** versions archived · Latest: [`v0.1.0-rc.1`](https://github.com/flarchive/el-choco-extension-uninstaller/tree/archive/v0.1.0-rc.1) · License: `MIT` · Flarum: `^1.8 || ^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `v0.1.0-rc.1` | 2026-11-06 | `^1.8 || ^2.0` | [Browse](https://github.com/flarchive/el-choco-extension-uninstaller/tree/archive/v0.1.0-rc.1) |
 
 Catalog entry: [packages/el-choco-extension-uninstaller.json](https://github.com/flarchive/archive-index/blob/main/packages/el-choco-extension-uninstaller.json)
 
