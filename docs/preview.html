@@ -1,0 +1,446 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Extension Uninstaller · Vorschau</title><style>
+  :root{--text-color:#203a37;--muted-color:#75847f;--control-bg:#eff3f1}*{box-sizing:border-box}body{margin:0;background:#fcfdfc;font:14px system-ui,-apple-system,Segoe UI,sans-serif}.preview-banner{padding:12px 30px;background:#e6eee9;color:#466157;font-size:12px}button,input{font:inherit}.Button{border:0;border-radius:8px;padding:12px 18px;background:#eaf0ed;color:#355e50;cursor:pointer}.Button--primary{background:#237d65;color:white}.Button--danger{background:#ad4238;color:white}.Button:disabled{opacity:.5;cursor:default}.FormControl{width:100%;border:1px solid #dce4df;border-radius:8px;padding:11px 12px;background:white;color:#304d43}.fa-check-circle:before{content:'✓'}.fa-puzzle-piece:before{content:'◇'}.fa-shield-alt:before{content:'◆'}.fa-box-open:before{content:'▣'}.fa-sync:before{content:'↻'}.fa-search:before{content:'⌕'}code,pre{font-family:Consolas,monospace}summary{cursor:pointer}.eu {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  color: var(--text-color);
+  --eu-green: #21846e;
+  --eu-soft: rgba(33, 132, 110, 0.08);
+  --eu-line: var(--control-bg);
+}
+.eu h2,
+.eu h3,
+.eu h4 {
+  margin: 0;
+}
+.eu p {
+  line-height: 1.6;
+}
+.eu button:focus-visible,
+.eu input:focus-visible,
+.eu pre:focus-visible {
+  outline: 3px solid #70b9a6;
+  outline-offset: 3px;
+}
+.eu-hero {
+  position: relative;
+  border-radius: 18px;
+  padding: 30px 34px;
+  background: #4d698e;
+  color: #fff;
+}
+.eu-hero h2 {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0;
+  margin-top: 0;
+}
+.eu-hero p {
+  max-width: 800px;
+  color: #fff;
+  margin: 12px 0 20px;
+}
+.eu-eyebrow {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #fff;
+}
+.eu-connection {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: #e2eee7;
+}
+.eu-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  background: #e9c17a;
+}
+.eu .is-online .eu-dot {
+  background: #9ae8c2;
+}
+.eu-metrics {
+  display: flex;
+  gap: 14px;
+  margin: 20px 0 26px;
+}
+.eu-metrics > div {
+  flex: 1;
+  border: 1px solid var(--eu-line);
+  border-radius: 12px;
+  padding: 17px 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.eu-metrics strong {
+  font-size: 27px;
+}
+.eu-metrics span {
+  color: var(--muted-color);
+  font-size: 12px;
+}
+.eu-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(340px, 1.3fr);
+  gap: 22px;
+  align-items: start;
+}
+.eu-catalog,
+.eu-inspector {
+  border: 1px solid var(--eu-line);
+  border-radius: 14px;
+  padding: 20px;
+  min-width: 0;
+}
+.eu-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.eu-section-head h3 {
+  font-size: 16px;
+}
+.eu-search {
+  display: block;
+}
+.eu-search > span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.eu-list {
+  max-height: 720px;
+  overflow-y: auto;
+  margin-top: 14px;
+}
+.eu-extension {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.eu-extension:hover {
+  background: var(--eu-soft);
+}
+.eu-extension.is-selected {
+  background: var(--eu-soft);
+  border-color: #8dbfaf;
+}
+.eu-extension:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.eu-package-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: var(--control-bg);
+  color: #58877c;
+}
+.eu-extension-copy {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+.eu-extension-copy strong,
+.eu-extension-copy small {
+  overflow-wrap: anywhere;
+}
+.eu-extension-copy small {
+  color: var(--muted-color);
+  font-size: 10px;
+}
+.eu-version {
+  font-size: 10px;
+  color: var(--muted-color);
+}
+.eu-badge {
+  font-size: 9px;
+  background: var(--control-bg);
+  padding: 4px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.eu-badge.is-enabled {
+  color: #27765e;
+  background: #e0f0e8;
+}
+.eu-package-name {
+  display: inline-block;
+  font-size: 11px;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.eu-description,
+.eu-muted {
+  color: var(--muted-color);
+  font-size: 12px;
+}
+.eu-steps {
+  display: flex;
+  gap: 16px;
+  border-top: 1px solid var(--eu-line);
+  padding-top: 20px;
+  margin: 24px 0 20px;
+  color: var(--muted-color);
+  font-size: 11px;
+}
+.eu-steps .is-current {
+  color: var(--eu-green);
+  font-weight: 700;
+}
+.eu-modes {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.eu-modes legend {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+.eu-mode {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  border: 1px solid var(--eu-line);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+.eu-mode.is-selected {
+  border-color: #80b3a5;
+  background: var(--eu-soft);
+}
+.eu-mode input {
+  margin-top: 3px;
+}
+.eu-mode strong,
+.eu-mode small {
+  display: block;
+}
+.eu-mode strong {
+  font-size: 13px;
+}
+.eu-mode small {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted-color);
+  margin-top: 4px;
+}
+.eu-preview {
+  margin-top: 12px;
+  width: 100%;
+}
+.eu-plan {
+  border-top: 1px solid var(--eu-line);
+  padding-top: 23px;
+  margin-top: 24px;
+}
+.eu-plan h4 {
+  color: var(--eu-green);
+}
+.eu-plan p,
+.eu-plan li {
+  font-size: 12px;
+}
+.eu-plan code {
+  overflow-wrap: anywhere;
+}
+.eu-plan ul {
+  padding-left: 20px;
+}
+.eu-confirm {
+  display: block;
+  margin: 20px 0 14px;
+}
+.eu-confirm span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.eu-purge-check {
+  display: flex;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.eu-purge-check input {
+  margin-top: 4px;
+}
+.eu-execute {
+  width: 100%;
+}
+.eu-removed-packages li {
+  padding: 5px 0;
+}
+.eu-removed-packages li code {
+  display: block;
+}
+.eu-plan-version {
+  display: block;
+  font-size: 11px;
+  color: var(--muted-color);
+  margin-top: 3px;
+}
+.eu-notice,
+.eu-error,
+.eu-danger-note {
+  padding: 14px 16px;
+  border-radius: 9px;
+  margin: 14px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.eu-notice p,
+.eu-error p,
+.eu-danger-note p {
+  margin: 5px 0 0;
+}
+.eu-notice {
+  background: var(--control-bg);
+  color: var(--muted-color);
+}
+.eu-error,
+.eu-danger-note {
+  background: #fff1ef;
+  color: #933c36;
+  border: 1px solid #f0ceca;
+}
+.eu-welcome {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+  color: var(--muted-color);
+}
+.eu-welcome > i {
+  font-size: 38px;
+  color: #86ad9e;
+  margin-bottom: 22px;
+}
+.eu-welcome h3 {
+  color: var(--text-color);
+}
+.eu-job {
+  border: 1px solid var(--eu-line);
+  border-radius: 14px;
+  margin-top: 24px;
+  padding: 20px;
+}
+.eu-job-status {
+  font-size: 11px;
+  color: var(--muted-color);
+}
+.eu-output {
+  background: #142c2c;
+  color: #d9ede7;
+  padding: 20px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 350px;
+  overflow-y: auto;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.eu-history {
+  margin-top: 28px;
+}
+.eu-history h3 {
+  font-size: 15px;
+}
+.eu-history ul {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.eu-history button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 12px 0;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid var(--eu-line);
+  font-size: 11px;
+}
+.eu-history button > span:first-child {
+  flex: 1;
+}
+.eu-history button small {
+  color: var(--muted-color);
+}
+.eu-footer {
+  color: var(--muted-color);
+  font-size: 10px;
+  margin-top: 26px;
+  line-height: 1.6;
+}
+.eu-empty {
+  padding: 25px;
+  color: var(--muted-color);
+  text-align: center;
+}
+@media (max-width: 850px) {
+  .eu-layout {
+    grid-template-columns: 1fr;
+  }
+  .eu-list {
+    max-height: 360px;
+  }
+  .eu-metrics > div {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+@media (max-width: 500px) {
+  .eu {
+    padding: 16px 10px;
+  }
+  .eu-hero {
+    padding: 24px 20px;
+  }
+  .eu-metrics {
+    gap: 6px;
+  }
+  .eu-metrics > div {
+    padding: 12px;
+  }
+  .eu-history button {
+    flex-wrap: wrap;
+  }
+}
+</style><body><div class="preview-banner">Statische Designvorschau · Beispieldaten · Keine Verbindung zu einem Forum</div><div class="eu"><header class="eu-hero"><h2 class="eu-eyebrow">el-choco · Erweiterungen Verwalten</h2><p>Installierte Erweiterungen deaktivieren oder deinstallieren. Geplante Änderungen und Optionen zur Datenbereinigung werden vor der Ausführung geprüft.</p><span class="eu-connection is-online"><span class="eu-dot"></span>Hintergrunddienst verbunden</span></header><div class="eu-metrics"><div><strong>6</strong><span>installierte Erweiterungen</span></div><div><strong>5</strong><span>aktiviert</span></div><div><strong>0</strong><span>zuletzt abgeschlossene Aufträge</span></div></div><div class="eu-layout"><section class="eu-catalog"><div class="eu-section-head"><h3>Deine Erweiterungen</h3><button class="Button Button--icon" title="Liste aktualisieren"><i class="fas fa-sync"></i></button></div><label class="eu-search"><span>Erweiterung finden</span><input class="FormControl" value="" placeholder="Name oder Composer-Paket suchen"></label><div class="eu-list" role="group" aria-label="Deine Erweiterungen"><button class="eu-extension is-selected" type="button" aria-pressed=""><span class="eu-package-icon"><i class="fas fa-puzzle-piece"></i></span><span class="eu-extension-copy"><strong>FoF Polls</strong><small>fof/polls</small><span class="eu-version">3.0.1</span></span><span class="eu-badge is-enabled">Aktiviert</span></button><button class="eu-extension" type="button"><span class="eu-package-icon"><i class="fas fa-puzzle-piece"></i></span><span class="eu-extension-copy"><strong>Depot</strong><small>ernestdefoe/depot</small><span class="eu-version">1.5.0</span></span><span class="eu-badge is-enabled">Aktiviert</span></button><button class="eu-extension" type="button"><span class="eu-package-icon"><i class="fas fa-shield-alt"></i></span><span class="eu-extension-copy"><strong>Admin Console</strong><small>el-choco/admin-console</small><span class="eu-version">0.2.0-rc.4</span></span><span class="eu-badge is-enabled">Geschützt</span></button><button class="eu-extension" type="button"><span class="eu-package-icon"><i class="fas fa-puzzle-piece"></i></span><span class="eu-extension-copy"><strong>Avocado</strong><small>ramon/avocado</small><span class="eu-version">2.2.12</span></span><span class="eu-badge is-enabled">Aktiviert</span></button><button class="eu-extension" type="button"><span class="eu-package-icon"><i class="fas fa-puzzle-piece"></i></span><span class="eu-extension-copy"><strong>FoF Sitemap</strong><small>fof/sitemap</small><span class="eu-version">3.0.0</span></span><span class="eu-badge">Deaktiviert</span></button><button class="eu-extension" type="button"><span class="eu-package-icon"><i class="fas fa-puzzle-piece"></i></span><span class="eu-extension-copy"><strong>Stickiest</strong><small>huseyinfiliz/stickiest</small><span class="eu-version">2.0.0</span></span><span class="eu-badge is-enabled">Aktiviert</span></button></div></section><section class="eu-inspector"><div class="eu-section-head"><h3>FoF Polls</h3></div><code class="eu-package-name">fof/polls</code><p class="eu-description">Umfragen für Diskussionen mit Abstimmungen und mehreren Antwortmöglichkeiten.</p><div class="eu-steps"><span class="is-current">1 · Auswählen</span><span class="is-current">2 · Prüfen</span><span>3 · Bestätigen</span></div><fieldset class="eu-modes"><legend>Was soll passieren?</legend><label class="eu-mode"><input type="radio" name="eu-mode" value="disable"><span><strong>Nur deaktivieren</strong><small>Paketdateien, Einstellungen und Daten behalten. Die Erweiterung wird über Flarum deaktiviert.</small></span></label><label class="eu-mode is-selected"><input type="radio" name="eu-mode" value="keep" checked=""><span><strong>Deinstallieren · Daten behalten</strong><small>Composer-Paket entfernen. Datenbankdaten für eine mögliche Neuinstallation behalten.</small></span></label><label class="eu-mode"><input type="radio" name="eu-mode" value="purge"><span><strong>Deinstallieren · Daten bereinigen</strong><small>Datenbank exportieren, Flarums Bereinigung ausführen und danach das Paket entfernen.</small></span></label></fieldset><button class="Button Button--primary eu-preview"><i class="fas fa-search"></i> Auswirkungen prüfen</button><section class="eu-plan"><h4><i class="fas fa-check-circle"></i> Dein geprüfter Plan</h4><p>Gültig bis 09:55:13. Bei geänderten Paketen oder Aktivierungen ist eine neue Prüfung nötig.</p><div><strong>Diese Pakete werden entfernt:</strong><ul class="eu-removed-packages"><li><code>fof/polls</code><span class="eu-plan-version">Version: 3.0.1</span></li></ul></div><label class="eu-confirm"><span>Zum Bestätigen DELETE eingeben</span><input class="FormControl" value="" placeholder="DELETE" autocomplete="off"></label><button class="Button eu-execute Button--primary" disabled="">Deinstallieren und Daten behalten</button></section></section></div><section class="eu-history"><h3>Letzte Aufträge</h3><p class="eu-muted">Noch keine Aufträge vorhanden.</p></section><footer class="eu-footer">Eigenständige Erweiterung · Flarum 1.8 / 2.x · Keine Admin-Console-Abhängigkeit · Release Candidate 0.1.0-rc.1</footer></div></body></html>
