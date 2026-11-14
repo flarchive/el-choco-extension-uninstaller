@@ -1,0 +1,16 @@
+[Unit]
+Description=el-choco Extension Uninstaller (Flarum 2 Docker)
+After=docker.service
+Requires=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/docker exec --user flarum --workdir /opt/flarum flarum2-flarum-1 php /opt/flarum/vendor/el-choco/extension-uninstaller/bin/worker.php --base=/opt/flarum --watch
+ExecStop=-/usr/bin/docker exec --user flarum --workdir /opt/flarum flarum2-flarum-1 php /opt/flarum/vendor/el-choco/extension-uninstaller/bin/worker.php --base=/opt/flarum --stop
+Restart=always
+RestartSec=5
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=multi-user.target

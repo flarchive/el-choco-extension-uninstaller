@@ -1,0 +1,55 @@
+.eu {
+  max-width: 1260px; margin: 0 auto; padding: 28px 24px 48px; color: var(--text-color);
+  --eu-green: #21846e; --eu-soft: rgba(33,132,110,.08); --eu-line: var(--control-bg);
+  h2, h3, h4 { margin: 0; } p { line-height: 1.6; }
+  button:focus-visible, input:focus-visible, pre:focus-visible { outline: 3px solid #70b9a6; outline-offset: 3px; }
+  &-hero { position: relative; border-radius: 18px; padding: 30px 34px; background: #4d698e; color: #fff;
+    h2 { color: #fff; font-size: 16px; letter-spacing: 0; margin-top: 0; } p { max-width: 800px; color: #fff; margin: 12px 0 20px; }
+  }
+  &-eyebrow { font-size: 16px; font-weight: 600; letter-spacing: 0; color: #fff; }
+  &-connection { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; color: #e2eee7; }
+  &-dot { width: 7px; height: 7px; border-radius: 100%; background: #e9c17a; }
+  .is-online .eu-dot { background: #9ae8c2; }
+  &-metrics { display: flex; gap: 14px; margin: 20px 0 26px;
+    > div { flex: 1; border: 1px solid var(--eu-line); border-radius: 12px; padding: 17px 20px; display: flex; align-items: baseline; gap: 12px; }
+    strong { font-size: 27px; } span { color: var(--muted-color); font-size: 12px; }
+  }
+  &-layout { display: grid; grid-template-columns: minmax(280px, .85fr) minmax(340px, 1.3fr); gap: 22px; align-items: start; }
+  &-catalog, &-inspector { border: 1px solid var(--eu-line); border-radius: 14px; padding: 20px; min-width: 0; }
+  &-section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 15px; h3 { font-size: 16px; } }
+  &-search { display: block; > span { display: block; margin-bottom: 7px; font-size: 12px; font-weight: 600; } }
+  &-list { max-height: 720px; overflow-y: auto; margin-top: 14px; }
+  &-extension { display: flex; width: 100%; align-items: center; gap: 10px; padding: 14px 10px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: inherit; text-align: left; cursor: pointer;
+    &:hover { background: var(--eu-soft); } &.is-selected { background: var(--eu-soft); border-color: #8dbfaf; } &:disabled { cursor: default; opacity: .65; }
+  }
+  &-package-icon { display: flex; justify-content: center; align-items: center; width: 34px; height: 34px; flex-shrink: 0; border-radius: 9px; background: var(--control-bg); color: #58877c; }
+  &-extension-copy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 3px; strong, small { overflow-wrap: anywhere; } small { color: var(--muted-color); font-size: 10px; } }
+  &-version { font-size: 10px; color: var(--muted-color); }
+  &-badge { font-size: 9px; background: var(--control-bg); padding: 4px 6px; border-radius: 5px; white-space: nowrap; &.is-enabled { color: #27765e; background: #e0f0e8; } }
+  &-package-name { display: inline-block; font-size: 11px; margin-bottom: 8px; overflow-wrap: anywhere; }
+  &-description, &-muted { color: var(--muted-color); font-size: 12px; }
+  &-steps { display: flex; gap: 16px; border-top: 1px solid var(--eu-line); padding-top: 20px; margin: 24px 0 20px; color: var(--muted-color); font-size: 11px; .is-current { color: var(--eu-green); font-weight: 700; } }
+  &-modes { border: 0; margin: 0; padding: 0; legend { font-size: 12px; font-weight: 700; margin-bottom: 9px; } }
+  &-mode { display: flex; align-items: start; gap: 10px; border: 1px solid var(--eu-line); border-radius: 10px; padding: 14px; margin-bottom: 9px; cursor: pointer;
+    &.is-selected { border-color: #80b3a5; background: var(--eu-soft); } input { margin-top: 3px; } strong, small { display: block; } strong { font-size: 13px; } small { font-size: 11px; line-height: 1.5; color: var(--muted-color); margin-top: 4px; }
+  }
+  &-preview { margin-top: 12px; width: 100%; }
+  &-plan { border-top: 1px solid var(--eu-line); padding-top: 23px; margin-top: 24px; h4 { color: var(--eu-green); } p, li { font-size: 12px; } code { overflow-wrap: anywhere; } ul { padding-left: 20px; } }
+  &-confirm { display: block; margin: 20px 0 14px; span { display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; } }
+  &-purge-check { display: flex; gap: 9px; font-size: 12px; line-height: 1.6; margin-bottom: 18px; input { margin-top: 4px; } }
+  &-execute { width: 100%; }
+  &-removed-packages li { padding: 5px 0; code { display: block; } }
+  &-plan-version { display: block; font-size: 11px; color: var(--muted-color); margin-top: 3px; }
+  &-notice, &-error, &-danger-note { padding: 14px 16px; border-radius: 9px; margin: 14px 0; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; p { margin: 5px 0 0; } }
+  &-notice { background: var(--control-bg); color: var(--muted-color); }
+  &-error, &-danger-note { background: #fff1ef; color: #933c36; border: 1px solid #f0ceca; }
+  &-welcome { min-height: 340px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; text-align: center; color: var(--muted-color); > i { font-size: 38px; color: #86ad9e; margin-bottom: 22px; } h3 { color: var(--text-color); } }
+  &-job { border: 1px solid var(--eu-line); border-radius: 14px; margin-top: 24px; padding: 20px; }
+  &-job-status { font-size: 11px; color: var(--muted-color); }
+  &-output { background: #142c2c; color: #d9ede7; padding: 20px; border-radius: 10px; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 350px; overflow-y: auto; font-size: 11px; line-height: 1.7; margin-bottom: 0; }
+  &-history { margin-top: 28px; h3 { font-size: 15px; } ul { list-style: none; margin: 12px 0 0; padding: 0; } button { background: transparent; border: 0; color: inherit; padding: 12px 0; width: 100%; display: flex; gap: 12px; align-items: center; text-align: left; cursor: pointer; border-bottom: 1px solid var(--eu-line); font-size: 11px; > span:first-child { flex: 1; } small { color: var(--muted-color); } } }
+  &-footer { color: var(--muted-color); font-size: 10px; margin-top: 26px; line-height: 1.6; }
+  &-empty { padding: 25px; color: var(--muted-color); text-align: center; }
+  @media (max-width: 850px) { &-layout { grid-template-columns: 1fr; } &-list { max-height: 360px; } &-metrics > div { flex-direction: column; gap: 3px; } }
+  @media (max-width: 500px) { padding: 16px 10px; &-hero { padding: 24px 20px; } &-metrics { gap: 6px; > div { padding: 12px; } } &-history button { flex-wrap: wrap; } }
+}

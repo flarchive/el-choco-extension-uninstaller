@@ -1,0 +1,18 @@
+[Unit]
+Description=el-choco Extension Uninstaller (Flarum native)
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/flarum
+ExecStart=/usr/bin/php /var/www/flarum/vendor/el-choco/extension-uninstaller/bin/worker.php --base=/var/www/flarum --watch
+ExecStop=-/usr/bin/php /var/www/flarum/vendor/el-choco/extension-uninstaller/bin/worker.php --base=/var/www/flarum --stop
+Restart=always
+RestartSec=5
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=multi-user.target
